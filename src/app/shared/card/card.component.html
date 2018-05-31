@@ -1,34 +1,34 @@
 <mat-card class="mat-whiteframe-2dp">
   <mat-card-title-group>
-    <div mat-card-avatar class="example-header-image"></div>
+    <img mat-card-mat-image src="assets/images/person.png">
     <mat-card-title>
         <span>{{ person?.firstName }} {{ person?.lastName }}</span>
     </mat-card-title>
     <mat-card-subtitle>{{ person?.entity }}</mat-card-subtitle>
     <mat-card-subtitle class="contact-info">
       <mat-icon svgIcon="icon-mail"></mat-icon>
-      <span class="truncate">{{ person?.email }}</span>
+      <a title="Email">{{ person?.mail }}</a>
     </mat-card-subtitle>
     <mat-card-subtitle class="contact-info">
       <mat-icon svgIcon="icon-phone"></mat-icon>
-      <span>{{ person?.phone }}</span>
+      <a title="Phone Number">{{ person?.phone }}</a>
     </mat-card-subtitle>
 
   </mat-card-title-group>
   <mat-card-content>
     <div class="contact-info">
-      Location&nbsp;:&nbsp;<a href="javascript:void(0);">{{person?.location}}</a>
+      Location&nbsp;:&nbsp;<a >{{person?.location}}</a>
     </div>
     <div class="contact-info">
       Birth Date&nbsp;:&nbsp;<span>{{ person?.birthDate | date:'dd/MM/yyyy' }}</span>
     </div>
     <div class="buttons-info">
-      <a mat-button title="Edit" [routerLink]="['/edit', person?.id]">
-      <mat-icon svgIcon="icon-edit"></mat-icon>
-      </a>
-      <a mat-button title="Delete" style="cursor: pointer" (click)="delete(person)">
+      <button mat-button title="Edit" (click)="edit(person)">
+        <mat-icon svgIcon="icon-edit"></mat-icon>
+      </button>
+      <button mat-button title="Delete" (click)="delete(person)">
         <mat-icon svgIcon="icon-delete"></mat-icon>
-      </a>
+      </button>
     </div>
   </mat-card-content>
 </mat-card>

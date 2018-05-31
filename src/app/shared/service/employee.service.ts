@@ -7,8 +7,11 @@ import { map } from 'rxjs/operators';
 export class EmployeeService {
   constructor(private http:HttpClient) { }
 
-  public test():Observable<Employee>{
-    //let params = new HttpParams();
-    return this.http.get<Employee>('http://localhost:8080/rest-server/employee/12');
+  public getEmployees():Observable<Employee[]>{
+    return this.http.get<Employee[]>('http://localhost:8080/rest-server/employees');
+  }
+  public deleteEmployee(id:number){
+    this.http.delete('http://localhost:8080/rest-server/employee/:id'.replace(':id',id + ''));
+    console.log('http://localhost:8080/rest-server/employee/:id'.replace(':id',id + ''));
   }
 }

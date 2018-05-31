@@ -9,11 +9,11 @@ import {ActivatedRoute, ActivatedRouteSnapshot, Route, Router, Routes} from '@an
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  employee:Employee;
+  employees:Employee[];
   constructor(private employeeService: EmployeeService, private router:Router,private route: ActivatedRoute) { }
 
   ngOnInit(){
-    this.employeeService.test().subscribe((employee)=> this.employee = employee);
+    this.employeeService.getEmployees().subscribe((employee)=> this.employees = employee);
   }
   test(){
     this.router.navigate(['/employees']);

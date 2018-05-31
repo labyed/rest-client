@@ -15,6 +15,7 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {MatCardModule} from '@angular/material/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CardComponent} from './shared/card/card.component';
+import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {CardComponent} from './shared/card/card.component';
     AppComponent,
     EmployeeCardComponent,
     EmployeesComponent,
-    CardComponent
+    CardComponent,
+    EmployeeEditComponent
   ],
   imports: [
     BrowserModule,

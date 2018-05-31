@@ -9,14 +9,15 @@ import {Employee} from '../shared/model/employee.model';
   styleUrls: ['./employee-card.component.css']
 })
 export class EmployeeCardComponent implements OnInit {
-  employee:Employee;
+  employees:Employee;
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
-    this.employeeService.test().subscribe((employee)=> this.employee = employee);
+    this.employeeService.getEmployees().subscribe((employee)=> this.employees = employee[0]);
   }
   delete(event){
-    console.log('done');
+    this.employeeService.deleteEmployee(event.target.value);
+    this.employeeService.getEmployees().subscribe((employee)=> this.employees = employee[0]);
   }
 
 }

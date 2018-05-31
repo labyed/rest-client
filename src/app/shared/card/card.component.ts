@@ -11,14 +11,10 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class CardComponent implements OnInit {
 
-  // private property to store person value
   private _person: any;
-  // private property to store delete$ value
   private _delete$: EventEmitter<any>;
+  private _edit$: EventEmitter<any>;
 
-  /**
-   * Component constructor
-   */
   constructor(private _router: Router,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(
       'icon-mail',
@@ -36,58 +32,36 @@ export class CardComponent implements OnInit {
     this._delete$ = new EventEmitter();
   }
 
-  /**
-   * Returns private property _person
-   *
-   * @returns {any}
-   */
   get person(): any {
     return this._person;
   }
 
-  /**
-   * Sets private property _person
-   *
-   * @param person
-   */
   @Input()
   set person(person: any) {
     this._person = person;
   }
 
-  /**
-   * Returns private property _delete$
-   *
-   * @returns {EventEmitter<any>}
-   */
   @Output('personDelete')
   get delete$(): EventEmitter<any> {
     return this._delete$;
   }
 
-  /**
-   * OnInit implementation
-   */
+  @Output('personEdit')
+  get edit$(): EventEmitter<any> {
+    return this._edit$;
+  }
+
+
   ngOnInit() {
   }
 
-  /**
-   * Function to emit event to delete current person
-   *
-   * @param person
-   */
   delete(person: any) {
     this._delete$.emit(person);
   }
 
-  /**
-   * Function to navigate to manager details
-   */
-  goToManagerIfExist() {
-    Observable
-      .of(this._person.managerId)
-      .filter(_ => !!_)
-      .subscribe(_ => this._router.navigate(['/person', _]));
+  edit(person: any) {
+    this._router.navigate(['/edit/employee',person.id]);
   }
+
 }
 
