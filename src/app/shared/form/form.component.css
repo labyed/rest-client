@@ -1,0 +1,15 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 25% 0 25% ;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.example-actions {
+  padding: 0 25% 0 50% ;
+}
+.example-actions > * {
+ width: 49%;
+}

@@ -1,0 +1,29 @@
+<div *ngIf="employee.employeeDetails" class="example-container">
+  <mat-form-field>
+    <input matInput [(ngModel)]="employee.employeeDetails.firstName" placeholder="First Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="employee.employeeDetails.lastName" placeholder="Last Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="employee.employeeDetails.entity" placeholder="Entity">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="employee.employeeDetails.mail" placeholder="mail">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="employee.employeeDetails.phone" placeholder="Phone">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="employee.employeeDetails.location" placeholder="Location">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="BirthDate" [(ngModel)]="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+<div class="example-actions">
+  <button mat-button type="button">Cancel</button>
+  <button mat-button color="primary" (click)="save()">Save</button>
+</div>

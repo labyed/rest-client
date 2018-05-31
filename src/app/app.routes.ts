@@ -8,6 +8,7 @@ const ROUTES: Routes = [
   { path: 'employees', component: EmployeesComponent},
   { path: 'employee/:id', component: EmployeeCardComponent},
   { path: 'edit/employee/:id', component: EmployeeEditComponent},
+  { path: 'create/employee', component: EmployeeEditComponent},
   { path: '', pathMatch: 'full', redirectTo: 'employees' }
 ];
 export const APP_ROUTES = RouterModule.forRoot(ROUTES);

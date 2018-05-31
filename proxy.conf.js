@@ -3,7 +3,7 @@ const PROXY_CONFIG = [
     context: [
       "/rest-server/*",
     ],
-    target: "http://localhost:8080",
+    target: "http://localhost:8080/",
     secure: false
   }
 ]

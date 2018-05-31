@@ -1,7 +1,6 @@
 .example-card {
   max-width: 200px;
-  display: inline-block;
-  margin: 10px;
+  margin: 20px;
 }
 
 .example-header-image {

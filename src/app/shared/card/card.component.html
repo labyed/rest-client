@@ -2,25 +2,25 @@
   <mat-card-title-group>
     <img mat-card-mat-image src="assets/images/person.png">
     <mat-card-title>
-        <span>{{ person?.firstName }} {{ person?.lastName }}</span>
+        <span>{{ person?.employeeDetails.firstName }} {{ person?.employeeDetails.lastName }}</span>
     </mat-card-title>
-    <mat-card-subtitle>{{ person?.entity }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ person?.employeeDetails.entity }}</mat-card-subtitle>
     <mat-card-subtitle class="contact-info">
       <mat-icon svgIcon="icon-mail"></mat-icon>
-      <a title="Email">{{ person?.mail }}</a>
+      <a title="Email">{{ person?.employeeDetails.mail }}</a>
     </mat-card-subtitle>
     <mat-card-subtitle class="contact-info">
       <mat-icon svgIcon="icon-phone"></mat-icon>
-      <a title="Phone Number">{{ person?.phone }}</a>
+      <a title="Phone Number">{{ person?.employeeDetails.phone }}</a>
     </mat-card-subtitle>
 
   </mat-card-title-group>
   <mat-card-content>
     <div class="contact-info">
-      Location&nbsp;:&nbsp;<a >{{person?.location}}</a>
+      Location&nbsp;:&nbsp;<a >{{person?.employeeDetails.location}}</a>
     </div>
     <div class="contact-info">
-      Birth Date&nbsp;:&nbsp;<span>{{ person?.birthDate | date:'dd/MM/yyyy' }}</span>
+      Birth Date&nbsp;:&nbsp;<span>{{ person?.employeeDetails.birthDate | date:'MMM d, y' }}</span>
     </div>
     <div class="buttons-info">
       <button mat-button title="Edit" (click)="edit(person)">

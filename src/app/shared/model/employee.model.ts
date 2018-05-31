@@ -1,10 +1,11 @@
+import {EmployeeDetails} from './employee.details.model';
+
 export class Employee {
     id:number;
-    firstName:string;
-    lastName:string;
-    entity:string;
-    mail:string;
-    phone:string;
-    location:string;
-    birthDate:Date;
+    employeeDetails:EmployeeDetails;
+
+  constructor(id: number, employeeDetails: EmployeeDetails) {
+    this.id = id;
+    this.employeeDetails = employeeDetails;
+  }
 }

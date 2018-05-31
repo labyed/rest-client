@@ -8,13 +8,13 @@ body {
   background-color: #FAFAFA;
   -webkit-font-smoothing: antialiased;
 }
-* /deep/ * {
+* {
   font-family: inherit;
   font-size: 14px;
   line-height: 1.42857143;
   color: inherit;
 }
-h1, * /deep/ h1 {
+h1 {
   font-size: 36px;
   margin-top: 20px;
   margin-bottom: 10px;

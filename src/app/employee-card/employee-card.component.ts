@@ -16,8 +16,12 @@ export class EmployeeCardComponent implements OnInit {
     this.employeeService.getEmployees().subscribe((employee)=> this.employees = employee[0]);
   }
   delete(employee:Employee){
-    this.employeeService.deleteEmployee(employee.id);
-    //this.employeeService.getEmployees().subscribe((employee)=> this.employees = employee[0]);
+    this.employeeService.deleteEmployee(employee.id).subscribe(()=>{},
+      (error)=>{console.log(error)},
+      ()=>{
+      console.log('refetching employees');
+        this.employeeService.getEmployees().subscribe((employee)=> this.employees = employee[0]);
+      });
   }
 
 }

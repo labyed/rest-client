@@ -1,3 +1,14 @@
-<p>
-  employees works!
-</p>
+<mat-grid-list cols="4" rowHeight="250px">
+  <mat-grid-tile
+    *ngFor="let employee of employees"
+    [colspan]="2">
+    <app-card *ngIf="employee" [person]='employee' (personDelete)="delete(employee)"></app-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2">
+    <mat-card class="mat-whiteframe-2dp" style="padding: 0px">
+      <button mat-button title="Add" (click)="createEmployee()">
+          <img src="assets/images/ajout-person.jpeg">
+      </button>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
