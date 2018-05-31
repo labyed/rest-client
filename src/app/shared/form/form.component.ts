@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee} from '../model/employee.model';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {EmployeeService} from '../service/employee.service';
 import {EmployeeDetails} from '../model/employee.details.model';
 @Component({
@@ -12,7 +12,7 @@ export class FormComponent implements OnInit {
   employee:Employee;
   id:number;
   date:any;
-  constructor(private route : ActivatedRoute, private employeeService: EmployeeService) { }
+  constructor(private route : ActivatedRoute, private router:Router, private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.employee = new Employee(NaN,new EmployeeDetails());
@@ -33,13 +33,16 @@ export class FormComponent implements OnInit {
     if(isNaN(this.id)){
       console.log(this.employee.id);
       this.employeeService.addEmployee(this.employee.employeeDetails).subscribe((e)=>{
-        console.log('post :'+e.id);
+        this.router.navigate(['/employees']);
       });
     }else{
       this.employeeService.editEmployee(this.employee).subscribe((e)=>{
-        console.log(e);
+        this.router.navigate(['/employees']);
       });
     }
+  }
+  cancel(){
+    this.router.navigate(['/employees']);
   }
 
 }

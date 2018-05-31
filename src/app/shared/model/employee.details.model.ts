@@ -7,8 +7,4 @@ export class EmployeeDetails {
   location:string;
   birthDate:Date;
 
-  constructor(){
-    this.birthDate = new Date();
-  }
-
 }
