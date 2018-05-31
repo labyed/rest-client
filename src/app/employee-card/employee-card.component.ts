@@ -15,9 +15,9 @@ export class EmployeeCardComponent implements OnInit {
   ngOnInit() {
     this.employeeService.getEmployees().subscribe((employee)=> this.employees = employee[0]);
   }
-  delete(event){
-    this.employeeService.deleteEmployee(event.target.value);
-    this.employeeService.getEmployees().subscribe((employee)=> this.employees = employee[0]);
+  delete(employee:Employee){
+    this.employeeService.deleteEmployee(employee.id);
+    //this.employeeService.getEmployees().subscribe((employee)=> this.employees = employee[0]);
   }
 
 }

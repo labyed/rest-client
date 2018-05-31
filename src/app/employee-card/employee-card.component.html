@@ -1,1 +1,1 @@
-<app-card [person]='employees' (personDelete)="delete($event)"></app-card>
+<app-card *ngIf="employees" [person]='employees' (personDelete)="delete(employees)"></app-card>

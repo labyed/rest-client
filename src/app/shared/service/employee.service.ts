@@ -11,7 +11,7 @@ export class EmployeeService {
     return this.http.get<Employee[]>('http://localhost:8080/rest-server/employees');
   }
   public deleteEmployee(id:number){
-    this.http.delete('http://localhost:8080/rest-server/employee/:id'.replace(':id',id + ''));
+    this.http.delete('http://localhost:8080/rest-server/employee/:id'.replace(':id',id + '')).subscribe();
     console.log('http://localhost:8080/rest-server/employee/:id'.replace(':id',id + ''));
   }
 }
